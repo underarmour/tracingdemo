@@ -27,7 +27,7 @@ dependencies {
     compile('io.opentracing.contrib:opentracing-spring-cloud-starter:0.0.6')
     compile('io.grpc:grpc-netty:1.7.0')
     compile('io.netty:netty-tcnative-boringssl-static:2.0.7.Final')
-    compile('com.lightstep.tracer:tracer-grpc:0.14.2')
+    // compile('com.lightstep.tracer:tracer-grpc:0.14.2')
     compile('com.lightstep.tracer:lightstep-tracer-jre:0.12.15')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
