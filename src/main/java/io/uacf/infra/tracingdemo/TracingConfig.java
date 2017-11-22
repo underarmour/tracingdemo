@@ -12,7 +12,7 @@ public class TracingConfig {
     private static Logger log = LoggerFactory.getLogger(TracingConfig.class.getName());
 
     @Bean
-    public Tracer lightstepTracer(@Value("${tracing.lightstep.token") String accessToken) throws Exception {
+    public Tracer lightstepTracer(@Value("${tracing.lightstep.access_token}") String accessToken) throws Exception {
         log.info("Using access token: {}", accessToken);
 
         return new com.lightstep.tracer.jre.JRETracer(
