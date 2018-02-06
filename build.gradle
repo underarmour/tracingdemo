@@ -1,0 +1,40 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RC1'
+	}
+	repositories {
+		mavenCentral()
+        maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'io.uacf.infra'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+//    compile('io.opentracing.contrib:opentracing-spring-cloud-starter:0.0.6')
+    compile('io.opentracing.contrib:opentracing-spring-cloud-starter:0.1.0')
+
+	// OpenTracing/LightStep Dependencies
+//	compile 'com.lightstep.tracer:lightstep-tracer-jre:0.12.15'
+    compile 'com.lightstep.tracer:lightstep-tracer-jre:0.14.0'
+    compile 'com.lightstep.tracer:tracer-grpc:0.14.3'
+	compile 'io.grpc:grpc-netty:1.7.0'
+	compile 'io.netty:netty-tcnative-boringssl-static:2.0.7.Final'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
